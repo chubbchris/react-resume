@@ -1,47 +1,47 @@
-import React from 'react'
-import {useState} from 'react';
-import [photos] from '../../assets/small';
+import React, { useState } from 'react';
 
-
-function PhotoList() {
+const PhotoList = ({ category }) => {
   const [photos] = useState([
     {
-      name: 'Whats for Dinner ',
+      name: 'Grocery aisle',
       category: 'portfolio',
-      description: 'This is a application that will pick a random food recipe and a random beer from a menu for you to have a unique dinner experience.',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie'
     },
     {
-      name: 'Weather App',
-      category: 'landscape',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
+      name: 'Grocery booth',
+      category: 'portfolio',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie'
     },
     {
-      name: 'asssibilty website',
-      category: 'landscape',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
+      name: 'Building exterior',
+      category: 'portfolio',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie'
     },
     {
-      name: 'note taker',
-      category: 'landscape',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
+      name: 'Restaurant table',
+      category: 'portfolio',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie'
     },
     {
-      name: 'budget list',
-      category: 'landscape',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
-    },
-    {
-      name: 'employee tracker',
-      category: 'landscape',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
+      name: 'Cafe interior',
+      category: 'portfolio',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie'
     },
   ]);
+
+  const currentPhotos = photos.filter(photo => photo.category === category);
+
   return (
     <div>
       <div className="flex-row">
-        {photos.map((image, i) => (
+        {currentPhotos.map((image, i) => (
           <img
-            src={require(`../../assets/small/${i}.jpg`).default}
+            src={require(`../../assets/small/${category}/${i}.jpg`).default}
             alt={image.name}
             className="img-thumbnail mx-1"
             key={image.name}
@@ -50,5 +50,6 @@ function PhotoList() {
       </div>
     </div>
   );
+};
 
 export default PhotoList;
